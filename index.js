@@ -32,6 +32,7 @@ function iniciar() {
       console.clear();
       mostrarMenu();
       console.log();
+      
       escolha = Number(
         prompt('Qual opção deseja? [digite 0 para sair]: ').trim()?.[0]
       );

@@ -30,8 +30,7 @@ export function editarTarefa(tasks) {
             console.log("Digite uma opção válida");
         }
     }
-
-    
+  
 
  switch (menuEdicao){
   case 1:
@@ -75,5 +74,3 @@ export function editarTarefa(tasks) {
  }
  
 }
-
-

@@ -1,24 +1,36 @@
 import { prompt } from './utils.js';
-import { tarefas } from './tarefas.js';
 
-export function editarTarefa() {
+export function editarTarefa(tasks) {
   const idEditar = Number(prompt("Informe o ID da tarefa: ").trim())
 
  
-  let tarefaEncontrada = tarefas.find(tarefa =>  tarefa.id === idEditar)
+  let tarefaEncontrada = tasks.find(tarefa =>  tarefa.id === idEditar)
 
   if (!tarefaEncontrada) {
     console.log('Tarefa não encontrada.Repita a operação');
-    return tarefas;
+    return tasks;
   }
 
-  console.log(`
-  1 - Alterar nome da tarefa
-  2 - Alterar Descrição da tarefa
-  3 - Alterar status da tarefa
-  `)
-  const menuEdicao = Number(prompt(`Escolha o que deseja alterar na tarefa *${tarefaEncontrada.nome}*:` 
-    ).trim())
+    console.log(`
+    1 - Alterar nome da tarefa
+    2 - Alterar Descrição da tarefa
+    3 - Alterar status da tarefa
+    `)
+
+    let menuEdicao = null
+
+    while (true) {
+
+        menuEdicao = Number(prompt(`Escolha o que deseja alterar na tarefa *${tarefaEncontrada.nome}*:` 
+            ).trim())
+            
+        if([1,2,3].includes(menuEdicao)) {
+            break;
+        } else {
+            console.log("Digite uma opção válida");
+        }
+    }
+  
 
  switch (menuEdicao){
   case 1:
@@ -26,7 +38,6 @@ export function editarTarefa() {
     const nomeAlterado = prompt("Informe novo nome: ").trim()
     tarefaEncontrada.nome = nomeAlterado
     console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.nome} alterado para ${nomeAlterado} `)
-
     break
 
     case 2:
@@ -63,6 +74,3 @@ export function editarTarefa() {
  }
  
 }
-
-
-

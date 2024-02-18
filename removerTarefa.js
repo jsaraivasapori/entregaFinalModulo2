@@ -3,6 +3,11 @@ import { listarTarefas } from './listarTarefas.js';
 
 export function removerTarefa(tarefas) {
 
+  if (tarefas.length === 0){
+    console.log("Sem tarefas cadastradas");
+    return tarefas;
+  }
+
   listarTarefas(tarefas);
   let id = Number(prompt('Qual tarefa deseja remover?: ').trim()?.[0]);
 
@@ -17,11 +22,14 @@ export function removerTarefa(tarefas) {
 
   if (confirmacao.toLowerCase() === 'sim') {
 
-    tarefas = tarefas.filter(tarefa => tarefa.id !== id);
-    console.log('Tarefa removida com sucesso.');
+    tarefas.array.forEach((tarefa, i) => {
+      if (tarefa.id === id) {
+        tarefas.splice(i, 1);
+        console.log('Tarefa removida com sucesso.');
+      }
+    });
   } else {
     console.log('Operação de remoção cancelada.');
   }
 
-  return tarefas;
 }

@@ -6,6 +6,8 @@ import { removerTarefa } from './removerTarefa.js';
 import { tarefas } from './tarefas.js';
 import { obterIdValido, prompt } from './utils.js';
 
+let tasks =  [...tarefas];
+
 const menu = [
   'Mostrar tarefas',
   'Adicionar tarefa',
@@ -46,21 +48,21 @@ function iniciar() {
 
     let id = null;
     if (escolha === 3 || escolha === 4 || escolha === 5) {
-      id = obterIdValido(tarefas);
+      id = obterIdValido(tasks);
     }
 
     switch (escolha) {
       case 1:
-        listarTarefas(tarefas);
+        listarTarefas(tasks);
         break;
       case 2:
-        adicionarTarefa(tarefas);
+        adicionarTarefa(tasks);
         break;
       case 3:
         editarTarefa(id);
         break;
       case 4:
-        removerTarefa(id);
+        tasks = removerTarefa(tasks);
         break;
       case 5:
         mostrarTarefa(id);
@@ -68,7 +70,7 @@ function iniciar() {
     }
 
     if (escolha !== 1) {
-      listarTarefas(tarefas);
+      listarTarefas(tasks);
     }
 
     prompt('Aperte enter para continuar');

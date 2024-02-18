@@ -6,6 +6,7 @@ import { removerTarefa } from './removerTarefa.js';
 import { tarefas } from './tarefas.js';
 import { obterIdValido, prompt } from './utils.js';
 
+
 let tasks = [...tarefas];
 
 const menu = [
@@ -83,10 +84,5 @@ function iniciar() {
         prompt('Qual opção deseja? [digite 0 para sair]: ').trim()?.[0]
       );
 
-    } while (!ehOpcaoValida(escolha, menu));
-
-    selecionarTarefa(escolha);
-
-}
 
 iniciar();

@@ -1,6 +1,7 @@
 import { obterIdValido, prompt } from './utils.js';
 
 export function adicionarTarefa(tarefas) {
+  
   let nome = '';
   let descricao = '';
   do {
@@ -19,4 +20,6 @@ export function adicionarTarefa(tarefas) {
     descricao,
     concluido: false,
   });
+
+  return tarefas;
 }

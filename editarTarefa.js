@@ -29,13 +29,22 @@ export function editarTarefa() {
     case 2:
       const descricaoAlterada = prompt("Informe a nova descricao: ").trim()
       tarefaEncontrada.descricao = descricaoAlterada
-      console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.descricao} aletrado para ${descricaoAlterada}`)
+      console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.descricao} alterado para ${descricaoAlterada}`)
       break
 
     case 3:
-      const statusAlterado = prompt("Informe o novo status: ").trim()
-      tarefaEncontrada.concluido = statusAlterado
-      console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.concluido} alteradop para ${statusAlterado}`)
+      const statusAlterado = Number(prompt(
+        `
+        0- Tarefa em adamento
+        1 - Tarefa concluída
+        
+
+        Informe o novo status: `
+      ).trim())
+      if(statusAlterado === 0 || statusAlterado === 1){
+      tarefaEncontrada.concluido = Boolean(statusAlterado)
+      console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.concluido} alterado para ${statusAlterado}`)
+      }else(console.log("Opção inexistente, revise a ação"))
       break
 
     default:

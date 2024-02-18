@@ -1,6 +1,10 @@
 export function listarTarefas(tarefas) {
-  console.log('----- LISTA DE TAREFAS -----');
-  for (const { id, nome, concluido } of tarefas) {
-    console.log(id, nome, concluido ? '(concluido)' : '');
-  }
+  console.clear();
+
+  console.log('---------------- LISTA DE TAREFAS ---------------- \n');
+
+  const transformed = tarefas.reduce((acc, {id, ...x}) => { acc[id] = x; return acc}, {});
+
+  console.table(transformed);
+
 }

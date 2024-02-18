@@ -53,7 +53,7 @@ export function editarTarefa(tasks) {
       while(!statusValido){
         console.clear()
         console.log(`
-        0- Tarefa em adamento
+        0 - Tarefa em adamento
         1 - Tarefa concluída
         `)
         const statusAlterado = Number(prompt(`Informe o novo status:`).trim())

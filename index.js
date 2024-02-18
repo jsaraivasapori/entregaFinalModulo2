@@ -67,7 +67,7 @@ function iniciar() {
         listarTarefas(tasks);
         break;
       case 5:
-        mostrarTarefa(id);
+        mostrarTarefa(tasks);
         break;
     }
 

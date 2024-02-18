@@ -1,3 +1,1 @@
-export const tarefas = [
-
-];
+export const tarefas = [];

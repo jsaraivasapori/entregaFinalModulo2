@@ -1,4 +1,4 @@
-import { tarefas } from "./tarefas.js";
+import { prompt } from "./utils.js";
 
 function centralizeLog(text) {
   const totalWidth = process.stdout.columns;
@@ -11,21 +11,27 @@ function centralizeLog(text) {
   });
 }
 
-export function mostrarTarefa(id) {
+export function mostrarTarefa(tasks) {
   console.clear();
-  centralizeLog("===||| Suas Tarefas Registradas São: |||===\n");
-  for (const { id, nome, descricao, concluido } of tarefas) {
+  const printid = Number(
+    prompt("Digite o ID da tarefa a ser exibida: ").trim()
+  );
+  let tarefa = tasks.find((tarefa) => tarefa.id === printid);
+
+  if (tarefa) {
+    centralizeLog("===||| Sua Tarefa Buscada é |||===\n");
     centralizeLog(
-      `=========================  ${id} - ${nome}  ========================\n`
+      `=========================  ${tarefa.id} - ${tarefa.nome}  ========================\n`
     );
-    centralizeLog(`|| Descrição da Tarefa: ||\n`);
-    centralizeLog(`( ${descricao} )\n`);
-    if (concluido === true) {
-      centralizeLog("||Status||: A tarefa está Conclúida😎\n");
-    } else if (concluido === false) {
-      centralizeLog(`||Status||: A tarefa ainda não foi finalizada 😴\n`);
+    centralizeLog("|| Descrição da Tarefa: ||\n");
+    centralizeLog(`${tarefa.descricao}\n`);
+
+    if (tarefa.concluido === true) {
+      centralizeLog("||Status||: A tarefa está Concluída😎\n");
+    } else {
+      centralizeLog("||Status||: A tarefa ainda não foi finalizada 😴\n");
     }
+  } else {
+    console.log("Tarefa não encontrada.");
   }
 }
-
-

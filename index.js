@@ -80,7 +80,7 @@ function iniciar() {
       mostrarMenu();
 
       escolha = Number(
-        prompt('Qual opção deseja? [digite 0 para sair]: ')
+        prompt('Qual opção deseja? [digite 0 para sair]: ').trim()?.[0]
       );
 
     } while (!ehOpcaoValida(escolha, menu));

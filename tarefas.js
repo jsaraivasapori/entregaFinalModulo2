@@ -2,7 +2,7 @@ export const tarefas = [
   {
     id: 0,
     nome: 'Fazer feira',
-    descricao: '',
+    descricao: 'Comprar mantimentos essenciais no mercado local.',
     concluido: false,
   },
   {

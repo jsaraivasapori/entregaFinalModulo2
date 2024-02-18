@@ -43,7 +43,7 @@ export function editarTarefa() {
       ).trim())
       if(statusAlterado === 0 || statusAlterado === 1){
       tarefaEncontrada.concluido = Boolean(statusAlterado)
-      console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.concluido} alterado para ${statusAlterado}`)
+      console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.concluido} alterado para ${Boolean(statusAlterado)}`)
       }else(console.log("Opção inexistente, revise a ação"))
       break
 

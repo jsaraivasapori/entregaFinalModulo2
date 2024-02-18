@@ -21,18 +21,23 @@ export function editarTarefa() {
 
  switch (menuEdicao){
   case 1:
+    console.clear()
     const nomeAlterado = prompt("Informe novo nome: ").trim()
     tarefaEncontrada.nome = nomeAlterado
     console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.nome} alterado para ${nomeAlterado} `)
     break
 
     case 2:
+      console.clear()
       const descricaoAlterada = prompt("Informe a nova descricao: ").trim()
       tarefaEncontrada.descricao = descricaoAlterada
       console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.descricao} alterado para ${descricaoAlterada}`)
       break
 
     case 3:
+      let statusValido = false
+      while(!statusValido){
+      console.clear()
       const statusAlterado = Number(prompt(
         `
         0- Tarefa em adamento
@@ -42,10 +47,15 @@ export function editarTarefa() {
         Informe o novo status: `
       ).trim())
       if(statusAlterado === 0 || statusAlterado === 1){
+
+      statusValido = true
       tarefaEncontrada.concluido = Boolean(statusAlterado)
+
       console.log(`Alteração efetuada com sucesso. ${tarefaEncontrada.concluido} alterado para ${Boolean(statusAlterado)}`)
-      }else(console.log("Opção inexistente, revise a ação"))
-      break
+      }
+      else(console.log("Opção inexistente, revise a ação"))
+    }break
+    
 
     default:
       console.log("Algo deu errado, volte ao menu e refaça a operação");

@@ -21,7 +21,7 @@ export function mostrarTarefa(id) {
     centralizeLog(`|| Descrição da Tarefa: ||\n`);
     centralizeLog(`( ${descricao} )\n`);
     if (concluido === true) {
-      centralizeLog("Status: A tarefa está Conclúida😎\n");
+      centralizeLog("||Status||: A tarefa está Conclúida😎\n");
     } else if (concluido === false) {
       centralizeLog(`||Status||: A tarefa ainda não foi finalizada 😴\n`);
     }

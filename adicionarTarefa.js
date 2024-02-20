@@ -1,18 +1,17 @@
-import { obterIdValido, prompt } from './utils.js';
+import { obterIdValido, prompt } from "./utils.js";
 
 export function adicionarTarefa(tarefas) {
-  
-  let nome = '';
-  let descricao = '';
+  let nome = "";
+  let descricao = null;
   do {
-    console.log('Digite o nome da tarefa:\n>');
+    console.log("Digite o nome da tarefa:\n>");
     nome = prompt();
   } while (!nome || nome.length < 3);
 
   do {
-    console.log('Digite a descrição da tarefa:\n>');
+    console.log("Digite a descrição da tarefa:\n>");
     descricao = prompt();
-  } while (!descricao || descricao.length < 8);
+  } while (!descricao === null);
 
   tarefas.push({
     id: obterIdValido(tarefas),

@@ -1,35 +1,38 @@
-import { prompt } from './utils.js';
-import { listarTarefas } from './listarTarefas.js';
+import { prompt } from "./utils.js";
+import { listarTarefas } from "./listarTarefas.js";
 
 export function removerTarefa(tarefas) {
-
-  if (tarefas.length === 0){
+  if (tarefas.length === 0) {
     console.log("Sem tarefas cadastradas");
     return tarefas;
   }
 
   listarTarefas(tarefas);
-  let id = Number(prompt('Qual tarefa deseja remover?: ').trim()?.[0]);
-
-  let tarefaEncontrada = tarefas.find(tarefa => tarefa.id === id);
-  if (!tarefaEncontrada) {
-    console.log('Tarefa não encontrada.');
-    return tarefas;
+  let tarefaEncontrada = -1;
+  let id;
+  while (tarefaEncontrada === -1) {
+    id = Number(prompt("Qual tarefa deseja remover?: ").trim()?.[0]);
+    tarefaEncontrada = tarefas.findIndex((tarefa) => tarefa.id === id);
+    if (tarefaEncontrada === -1) {
+      console.log("Tarefa não encontrada.");
+    } else {
+      tarefaEncontrada = tarefas[tarefaEncontrada];
+    }
   }
 
-  console.log(`Você está prestes a remover a seguinte tarefa:\nNome: ${tarefaEncontrada.nome}\nDescrição: ${tarefaEncontrada.descricao}`);
+  console.log(
+    `Você está prestes a remover a seguinte tarefa:\nNome: ${tarefaEncontrada.nome}\nDescrição: ${tarefaEncontrada.descricao}`
+  );
   let confirmacao = prompt('Digite "sim" para confirmar: ');
 
-  if (confirmacao.toLowerCase() === 'sim') {
-
-    tarefas.array.forEach((tarefa, i) => {
+  if (confirmacao.toLowerCase() === "sim") {
+    tarefas.forEach((tarefa, i) => {
       if (tarefa.id === id) {
         tarefas.splice(i, 1);
-        console.log('Tarefa removida com sucesso.');
+        console.log("Tarefa removida com sucesso.");
       }
     });
   } else {
-    console.log('Operação de remoção cancelada.');
+    console.log("Operação de remoção cancelada.");
   }
-
 }

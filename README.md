@@ -1,13 +1,13 @@
 
 # Lógica de Programação - Projeto final
 
-## O que?
+## Objetivo:
 
 Desenvolver, utilizando os conceitos abordados ao longo do módulo, uma aplicação de lista de tarefas (ToDo List).
 
 ---
 
-## Requisitos
+## Requisitos:
 
 Dentre as funcionalidades, espera-se que seja possível:
 
@@ -19,20 +19,20 @@ Dentre as funcionalidades, espera-se que seja possível:
 
 ---
 
-## Observações
+## Observações:
 
 Não haverá a persistência das tarefas em banco de dados. Para isso, podem utilizar um array para armazenar a lista das tarefas cadastradas.
 
-## Equipes
+## Equipe:
 
-✅ Grupo 1 - Ana, Naady Campos, Océlia Sousa, Tarcilla Barbosa e Thaís
+✅ Grupo 5 -
 
-✅ Grupo 2 - Arthur Caldas, Cleiton Sena, Kauã Cunha e Keo
+ Priscila: [@prisciladelima](https://github.com/prisciladelima)
 
-✅ Grupo 3 - Bruno Omena, Thiago, Matheus Pires,  Wesley Campos
+ Elen: [@elenbomfim](https://github.com/elenbomfim)
 
-✅ Grupo 4 - Henrique, Bruno Pavese, Jefferson e Jean
+ João:[@jsaraivasapori](https://github.com/jsaraivasapori)
 
-✅ Grupo 5 - Priscila, Elen, João, Filipe e Lucas
+ Fillipe:[@famgz](https://github.com/famgz)
 
-✅ Grupo 6 - Luiz, David, Felipe e Alano
+ Lucas:[@pennAls](https://github.com/pennAls)

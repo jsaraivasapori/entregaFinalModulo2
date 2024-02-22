@@ -3,9 +3,10 @@ import { editarTarefa } from './editarTarefa.js';
 import { listarTarefas } from './listarTarefas.js';
 import { mostrarTarefa } from './mostrarTarefa.js';
 import { removerTarefa } from './removerTarefa.js';
+import { tarefas } from './tarefas.js';
 import { obterIdValido, prompt } from './utils.js';
 
-const tarefas = [];
+const tasks =  [...tarefas];
 
 const menu = [
   'Adicionar uma tarefa',
@@ -16,7 +17,7 @@ const menu = [
 ];
 
 function mostrarMenu() {
-  console.log('Organizador de tarefas\n');
+  console.log("Organizador de tarefas\n")
   for (let i in menu) {
     i = Number(i);
     console.log(`${i + 1}. ${menu[i]}`);
@@ -31,7 +32,7 @@ function iniciar() {
       console.clear();
       mostrarMenu();
       console.log();
-
+      
       escolha = Number(
         prompt('Qual opção deseja? [digite 0 para sair]: ').trim()?.[0]
       );
@@ -49,25 +50,29 @@ function iniciar() {
 
     let id = null;
     if (escolha === 3 || escolha === 4 || escolha === 5) {
-      id = obterIdValido(tarefas);
+      id = obterIdValido(tasks);
     }
 
     switch (escolha) {
       case 1:
-        adicionarTarefa(tarefas);
+        adicionarTarefa(tasks);
         break;
       case 2:
-        editarTarefa(tarefas);
+        editarTarefa(tasks);
         break;
       case 3:
-        removerTarefa(tarefas);
+        removerTarefa(tasks);
         break;
       case 4:
-        listarTarefas(tarefas);
+        listarTarefas(tasks);
         break;
       case 5:
-        mostrarTarefa(tarefas);
+        mostrarTarefa(tasks);
         break;
+    }
+
+    if (escolha !== 4) {
+      listarTarefas(tasks);
     }
 
     prompt('Aperte enter para continuar');

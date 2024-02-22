@@ -1,14 +1,14 @@
 export function listarTarefas(tarefas) {
   console.log(
-    "----------------------- LISTA DE TAREFAS ----------------------- \n"
+    '----------------------- LISTA DE TAREFAS ----------------------- \n'
   );
 
-  const transformed = tarefas.map(({ id, nome, descricao, concluido }) => ({
-    id,
+  const formatada = tarefas.map(({ id, nome, descricao, concluido }) => ({
+    ID: id,
     nome,
     descricao,
-    status: concluido ? "Concluído" : "Pendente",
+    status: concluido ? 'concluído' : 'pendente',
   }));
 
-  console.table(transformed);
+  console.table(formatada);
 }

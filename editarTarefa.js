@@ -1,13 +1,23 @@
-import { prompt } from "./utils.js";
+import { listarTarefas } from './listarTarefas.js';
+import { prompt } from './utils.js';
 
-export function editarTarefa(tasks) {
-  const idEditar = Number(prompt("Informe o ID da tarefa: ").trim());
+export function editarTarefa(tarefas) {
+  if (tarefas.length === 0) {
+    console.log('Não há tarefas cadastradas');
+    return tarefas;
+  }
 
-  let tarefaEncontrada = tasks.find((tarefa) => tarefa.id === idEditar);
+  listarTarefas(tarefas);
+
+  const idEditar = Number(
+    prompt('Informe o ID da tarefa que deseja editar: ').trim()
+  );
+
+  let tarefaEncontrada = tarefas.find((tarefa) => tarefa.id === idEditar);
 
   if (!tarefaEncontrada) {
-    console.log("Tarefa não encontrada.Repita a operação");
-    return tasks;
+    console.log('Tarefa não encontrada. Tente novamente');
+    return tarefas;
   }
 
   console.log(`
@@ -28,14 +38,14 @@ export function editarTarefa(tasks) {
     if ([1, 2, 3].includes(menuEdicao)) {
       break;
     } else {
-      console.log("Digite uma opção válida");
+      console.log('Digite uma opção válida');
     }
   }
 
   switch (menuEdicao) {
     case 1:
       console.clear();
-      const nomeAlterado = prompt("Informe a nova tarefa: ").trim();
+      const nomeAlterado = prompt('Informe o novo nome da tarefa: ').trim();
       console.log(
         `Alteração efetuada com sucesso. ${tarefaEncontrada.nome} alterado para ${nomeAlterado} `
       );
@@ -44,7 +54,7 @@ export function editarTarefa(tasks) {
 
     case 2:
       console.clear();
-      const descricaoAlterada = prompt("Informe a nova descricao: ").trim();
+      const descricaoAlterada = prompt('Informe a nova descricao: ').trim();
       tarefaEncontrada.descricao = descricaoAlterada;
       console.log(
         `Alteração efetuada com sucesso. ${tarefaEncontrada.descricao} alterado para ${descricaoAlterada}`
@@ -66,12 +76,14 @@ export function editarTarefa(tasks) {
           tarefaEncontrada.concluido = Boolean(statusAlterado);
 
           console.log(`Alteração efetuada com sucesso.`);
-        } else console.log("Opção inexistente, revise a ação");
+        } else console.log('Opção inexistente, tente novamente');
         break;
       }
       break;
 
     default:
-      console.log("Algo deu errado, volte ao menu e refaça a operação");
+      console.log('Algo deu errado, volte ao menu e tente novamente');
   }
+
+  listarTarefas(tarefas);
 }
